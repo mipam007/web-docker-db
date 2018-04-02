@@ -10,7 +10,7 @@ ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-serv
 
 RUN yum -y install --setopt=tsflags=nodocs epel-release \
     && yum update -y \
-    && yum -y install --setopt=tsflags=nodocs mariadb-server bind-utils pwgen psmisc hostname \
+    && yum -y install --setopt=tsflags=nodocs MariaDB-server bind-utils pwgen psmisc hostname \
     && yum clean all \
     && rm -rf /var/cache/yum/*
 
