@@ -11,7 +11,13 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release \
 
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-install.sh /tmp
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-setup.sql /tmp
-RUN /tnmp/mariadb-install.sh
+ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-server.cnf /etc/my.cnf.d/server.cnf
+
+
+
+RUN chmod +x /tnmp/mariadb-install.sh
+
+CMD ["/tmp/mariadb-install.sh"]
 
 
 
