@@ -9,6 +9,7 @@ CREATE TABLE user_review (
   details VARCHAR(4000)
   );
 
-GRANT ALL ON reviews.* to 'hodnoceni'@'localhost' IDENTIFIED BY 'hodnoceni';
-GRANT ALL ON reviews.* to 'hodnoceni'@'%' IDENTIFIED BY 'hodnoceni';
+CREATE USER 'hodnoceni'@'%' IDENTIFIED BY 'hodnoceni';
+GRANT ALL ON *.* TO 'hodnoceni'@'%';
+
 FLUSH PRIVILEGES;
