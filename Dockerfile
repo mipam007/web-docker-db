@@ -7,15 +7,13 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release \
     && yum update -y \
     && yum -y install --setopt=tsflags=nodocs mariadb-server bind-utils pwgen psmisc hostname \ 
     && yum clean all \
-    && rm -rf /var/cache/yum/* \
+    && rm -rf /var/cache/yum/*
 
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-install.sh /tmp
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-setup.sql /tmp
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-server.cnf /etc/my.cnf.d/server.cnf
 
-
-
-RUN chmod +x /tnmp/mariadb-install.sh
+RUN chmod +x /tmp/mariadb-install.sh
 
 CMD ["/tmp/mariadb-install.sh"]
 
