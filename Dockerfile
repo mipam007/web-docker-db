@@ -9,8 +9,9 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release \
     && yum clean all \
     && rm -rf /var/cache/yum/* \
 
-ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/MariaDB-setup.sh /tmp
-RUN /tnmp/MariaDB-setup.sh
+ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-install.sh /tmp
+ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-setup.sql /tmp
+RUN /tnmp/mariadb-install.sh
 
 
 
