@@ -1,5 +1,6 @@
  [mysqld]
- bind-address=0.0.0.0
+ bind-address=127.0.0.1
+ port=3306
  console=1
  general_log=1
  general_log_file=/dev/stdout
