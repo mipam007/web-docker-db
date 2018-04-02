@@ -6,7 +6,9 @@ mysql_install_db --user=mysql &
 
 sleep 10s
 
-mysqld_safe
+mysqld_safe &
+
+sleep 6s
 
 mysql -v < /tmp/mariadb-setup.sql
 
