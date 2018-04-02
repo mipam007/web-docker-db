@@ -1,20 +1,19 @@
 #!/bin/sh
 
-chown -R mysql: /var/lib/mysql
+#!/bin/bash
 
-mysql_install_db --user=mysql &
 
-sleep 10s
+if [ ! -f /var/lib/mysql/ibdata1 ]; then
 
-mysqld_safe &
+	mysql_install_db
 
-sleep 6s
+	/usr/bin/mysqld_safe &
+	sleep 10s
 
-mysql -v < /tmp/mariadb-setup.sql
+	mysql -v < /tmp/mariadb-setup.sql
 
-kill -9 $(ps axu | grep -v grep | grep mysql | awk '{ print $2}')
+	kill -9 $(ps axu | grep -v grep | grep mysql | awk '{ print $2}')
+	sleep 10s
+fi
 
-sleep 5s
-
-mysqld_safe --user=mysql
-
+/usr/bin/mysqld_safe

@@ -4,7 +4,7 @@ MAINTAINER Jindřich Káňa <jindrich.kana@gmail.com>
 LABEL Vendor="kanaajin"
 
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/repo /etc/yum.repos.d/mariadb.repo
-ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-install.sh /tmp
+ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-install.sh /opt
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-setup.sql /tmp
 ADD https://raw.githubusercontent.com/mipam007/web-docker-db/master/mariadb-server.cnf /etc/my.cnf.d/server.cnf
 
@@ -14,12 +14,8 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release \
     && yum clean all \
     && rm -rf /var/cache/yum/*
 
-RUN chmod +x /tmp/mariadb-install.sh
+RUN chmod +x /opt/mariadb-install.sh
 
 EXPOSE 3306
 
-CMD ["/tmp/mariadb-install.sh"]
-
-
-
-
+CMD ["bin/bash", "/opt/mariadb-install.sh"]
