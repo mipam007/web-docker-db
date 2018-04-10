@@ -1,4 +1,4 @@
-FROM  rhel7
+FROM  rhscl/rhel7
 
 MAINTAINER Jindřich Káňa <jindrich.kana@gmail.com>
 LABEL Vendor="kanaajin"
