@@ -1,4 +1,4 @@
-FROM docker-registry-default.rocp.vs.csint.cz/rhscl/rhel7:latest
+FROM centos:latest
 
 MAINTAINER Jindřich Káňa <jindrich.kana@gmail.com>
 LABEL Vendor="kanaajin"
