@@ -1,4 +1,4 @@
-FROM  centos:7
+FROM  rhel7
 
 MAINTAINER Jindřich Káňa <jindrich.kana@gmail.com>
 LABEL Vendor="kanaajin"
